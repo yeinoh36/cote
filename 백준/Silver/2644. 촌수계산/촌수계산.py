@@ -12,7 +12,7 @@ answer = -1
 stack = []
 stack.append([one, 0])
 
-# bfs 탐색
+# dfs 탐색
 while stack:
     x = stack.pop()
     who, chon = x[0], x[1]
