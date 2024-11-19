@@ -9,7 +9,7 @@ housemap = [list(map(int, line.strip())) for line in data[1:N+1]]
 num, numlist = 0, []
 moves = [[0, -1], [0, 1], [-1, 0], [1, 0]]    # 상하좌우(x, y)
 
-# BFS 탐색
+# DFS 탐색
 for i in range(N * N):
     x, y = i % N, i // N
 
