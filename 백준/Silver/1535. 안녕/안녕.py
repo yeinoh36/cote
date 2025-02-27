@@ -1,14 +1,13 @@
 import sys
+from itertools import combinations
 
 data = sys.stdin.read().splitlines()
 N = int(data[0])
 I = list(data[1].split())
 J = list(data[2].split())
 
-HP = 100
 happiness = 0
 
-from itertools import combinations
 for i in range(N, 0, -1):
     for comb in combinations(range(N), i):
         tmp = 0
@@ -24,5 +23,3 @@ for i in range(N, 0, -1):
         happiness = max(happiness, tmp)
 
 print(happiness)
-
-            
