@@ -1,13 +1,12 @@
 from collections import deque
 def solution(gems):
     
-    # 진열된 모든 종류의 보석을 적어도 1개 이상 포함하는 가장 짧은 구간을 찾아서 구매
     answer = []
     num = len(set(gems)) # gem 종류
     s, sg = 1, gems[0]
     e, eg = 1, gems[0]
-    # 'DIA': [1, 4, 5, 8], ... / 보석의 종류 수 / 작업 큐
-    gem_dict, g_kind, que = {}, 0, deque()
+    # 작업 큐 / 보석의 종류별 개수 dict / 보석의 종류 수 int 
+    que, gem_dict, g_kind  = deque(), {}, 0
     
     for i, gem in enumerate(gems):
         que.append(gem)
@@ -22,13 +21,15 @@ def solution(gems):
         else:
             gem_dict[gem] += 1
             # 만약 시작 보석과 추가된 보석이 같다면
-            # 시작 보석을 빼고 새로운 시작 보석이 적합한지 확인하기
             if sg == gem:
                 while True:
+                    # 시작 보석 제거
                     gem_dict[sg] = gem_dict[sg]-1
                     que.popleft()
+                    # 새로운 시작 보석 업데이트
                     s += 1
                     sg = que[0]
+                    # 해당 보석이 
                     if len(que) < 2 or gem_dict[sg] == 1:
                         break
         
