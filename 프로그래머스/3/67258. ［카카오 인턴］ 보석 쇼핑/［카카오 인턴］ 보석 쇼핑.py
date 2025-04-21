@@ -29,8 +29,8 @@ def solution(gems):
                     # 새로운 시작 보석 업데이트
                     s += 1
                     sg = que[0]
-                    # 해당 보석이 
-                    if len(que) < 2 or gem_dict[sg] == 1:
+                    # 해당 시작 보석이 que에 1번만 등장한다면 시작 보석 제거 멈추기
+                    if gem_dict[sg] == 1:
                         break
         
         # 보석 종류 조건을 만족했다면 길이를 비교하며 정답 교체하기
